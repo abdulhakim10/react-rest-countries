@@ -1,0 +1,10 @@
+.Country{
+    background-color: lightblue;
+    padding: 20px;
+    margin: 15px;
+    border: 2px solid purple;
+    border-radius: 10px;
+}
+.Country img{
+    width: 200px;
+}
