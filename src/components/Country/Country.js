@@ -1,11 +1,12 @@
 import React from 'react';
+import { addToDb } from '../utilities/fakeDB';
 import './Country.css'
 const Country = (props) => {
 
    const {name, population, region, area, flags, cca3} = props.country;
 //    event handler with parameter
    const marked = (cca3) =>{
-    console.log('marked country', cca3)
+   addToDb(cca3);
    }
     return (
         <div className='Country'>
