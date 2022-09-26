@@ -1,5 +1,5 @@
 import React from 'react';
-import { addToDb } from '../utilities/fakeDB';
+import { addToDb, removedFromDb } from '../utilities/fakeDB';
 import './Country.css'
 const Country = (props) => {
 
@@ -8,6 +8,11 @@ const Country = (props) => {
    const marked = (cca3) =>{
    addToDb(cca3);
    }
+
+   const removed = cca3 => {
+    removedFromDb(cca3);
+   }
+   
     return (
         <div className='Country'>
             <h2>Country: {name.common}</h2>
@@ -17,6 +22,7 @@ const Country = (props) => {
             <p><small>Area: {area}</small></p>
             <p>Code: {cca3}</p>
             <button onClick={() => marked(cca3)}>Marked</button>
+            <button onClick={() => removed(cca3)}>Remove</button>
         </div>
     );
 };

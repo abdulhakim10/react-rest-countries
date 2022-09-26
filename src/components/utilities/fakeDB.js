@@ -14,7 +14,8 @@ const addToDb = cca3 => {
     const quantity = markedCountry[cca3];
     if(quantity){
         
-        markedCountry[cca3] = quantity + 1;
+        const newQuantity = quantity + 1;
+        markedCountry[cca3] = newQuantity;
         // localStorage.setItem(cca3, newQuantity);
     }
     else{
@@ -24,4 +25,15 @@ const addToDb = cca3 => {
     localStorage.setItem('marked-country', JSON.stringify(markedCountry));
 }
 
-export {addToDb}
+const removedFromDb = cca3 => {
+    const storedCountry = localStorage.getItem('marked-country');
+    if(storedCountry){
+        const markedCountry = JSON.parse(storedCountry);
+        if(cca3 in markedCountry){
+           delete markedCountry[cca3];
+           localStorage.setItem('marked-country', JSON.stringify(markedCountry));
+        }
+    }
+}
+
+export {addToDb, removedFromDb}
